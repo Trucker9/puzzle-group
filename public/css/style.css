@@ -665,11 +665,11 @@ h1 {
   color: white;
 }
 
-#studio #studio-content #intro {
+#studio #studio-content .intro {
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
-#studio #hall-content #intro {
+#studio #hall-content .intro {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
