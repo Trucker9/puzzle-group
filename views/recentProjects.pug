@@ -1,0 +1,10 @@
+extends base
+block content
+
+	.cards-2.no-flow.dark-bg
+		each proj in recentProjects
+				.card-2
+					a(href=`http://127.0.0.1:3000/projects/${proj.slug}`)
+						h2.card-title-2= proj.name
+						img(src=`http://127.0.0.1:3000/img/project-images/${proj.imageCover}`, alt='project-image')
+						p.card-desc-2= proj.description

@@ -6,13 +6,16 @@ html
             meta(name='viewport' content='width=device-width, initial-scale=1.0')
             link(rel='stylesheet' href='/css/style.css')
             link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
-            title گروه پازل
+            script(src='https://kit.fontawesome.com/bda3bac429.js', crossorigin='anonymous')
+            script(src="https://unpkg.com/axios/dist/axios.min.js")
+
+            title Puzzle Group | #{title}
 
     body
         include _header
         // CONTENT
         block content
-            h1 This is a placeholder heading
+
 
         include _footer
-        script(src='/js/bundle.js')
+

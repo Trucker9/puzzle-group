@@ -14,6 +14,8 @@ const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const viewRouter = require('./routes/viewRoutes');
+const projectRouter = require('./routes/projectRoutes');
+const userRouter = require('./routes/userRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 /////////////////////////////////////////////
 const app = express();
@@ -39,6 +41,23 @@ app.use(express.static(path.join(__dirname, 'public'))); // now we can access it
 app.use(compression());
 
 app.use((req, res, next) => {
+    res.setHeader(
+        'Content-Security-Policy',
+         "connect-src *; default-src *; style-src 'self' http://* 'unsafe-inline'; script-src * http://*" +
+        " 'unsafe-inline' 'unsafe-eval'; img-src *"
+    );
+    res.removeHeader('Cross-Origin-Resource-Policy');
+    res.removeHeader('Cross-Origin-Embedder-Policy');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    // res.header('Access-Control-Allow-Origin', '*');
+    // res.header(
+    //   'Access-Control-Allow-Headers',
+    //   'Origin, X-Requested-With, Content-Type, Accept'
+    // );
+    next();
+});
+
+app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();
     next();
 });
@@ -50,6 +69,8 @@ app.use((req, res, next) => {
 // tourRouter will kick in.
 
 app.use('/', viewRouter);
+app.use('/projects', projectRouter);
+app.use('/api',userRouter);
 // app.use('/api/v1/tours', tourRouter);
 
 

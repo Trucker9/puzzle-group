@@ -1,1 +1,28 @@
 extends base
+
+block content
+	section#project.dark-bg
+		.container
+			.project-text
+				h2= proj.name
+					i.fa-solid.fa-arrow-trend-up
+				p= proj.description
+
+			// MAX 6
+			.project-gallery
+				.box
+					img(src=`/img/project-images/${proj.imageCover}`)
+				.box
+					img(src=`/img/project-images/${proj.images[0]}`)
+				.box
+					img(src=`/img/project-images/${proj.images[1]}`)
+				.box
+					img(src=`/img/project-images/${proj.images[2]}`)
+				.box
+					img(src=`/img/project-images/${proj.images[3]}`)
+				.box
+					img(src=`/img/project-images/${proj.images[4]}`)
+
+			.video
+				p
+					|  !{proj.videoHTML}

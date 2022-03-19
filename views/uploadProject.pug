@@ -1,0 +1,32 @@
+extends base
+block content
+	form.form.form-upload
+			.form-group
+				label(for='name') نام پروژه
+				input(id='name' type='text' name='name')
+			.form-group
+				label(for='des') توضیحات
+				input(id='des' type='text' name='description')
+			.form-group
+				label(for='link') لینک آپارات
+				input(id='link' type='text' name='videoHTML')
+			.form-group
+				label(for='cover') تصویر کاور
+				input.form__upload(id='cover' type='file', accept='image/*',  name='imageCover')
+			.form-group
+				label(for='image1') تصویر 1
+				input.form__upload(id='image1' type='file', accept='image/*',  name='images')
+			.form-group
+				label(for='image2') تصویر 2
+				input.form__upload(id='image2' type='file', accept='image/*',  name='images')
+			.form-group
+				label(for='image3') تصویر 3
+				input.form__upload(id='image3' type='file', accept='image/*',  name='images')
+			.form-group
+				label(for='image4') تصویر 4
+				input.form__upload(id='image4' type='file', accept='image/*',  name='images')
+			.form-group
+				label(for='image5') تصویر 5
+				input.form__upload(id='image5' type='file', accept='image/*',  name='images')
+
+			button.btn Upload
